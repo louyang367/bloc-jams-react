@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.songRow {
+  display: block; }
+
+.songNumCell .ion-play{
+  display: none; }
+
+.songRow:hover .songNumCell .ion-play{
+  display: inline; }
+
+.songRow:hover .songNumCell .trackNumber{
+  display: none; }
