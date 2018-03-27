@@ -20,7 +20,7 @@ import React, { Component } from 'react';
         <input
           type="range"
           className="seek-bar"
-          value={(this.props.currentTime / this.props.duration) || 0}
+          value={this.props.timeSliderPos || 0}
           max="1"
           min="0"
           step="0.01"
@@ -29,9 +29,18 @@ import React, { Component } from 'react';
         <div className="total-time">{this.props.duration}</div>
       </section>
       <section id="volume-control">
-        <div className="icon ion-volume-low"></div>
-        <input type="range" className="seek-bar" value="80" />
-        <div className="icon ion-volume-high"></div>
+        <span className="icon ion-volume-low"></span>
+        <input
+          type="range"
+          className="volume-bar"
+          value={(this.props.currentVolume) || 0.5}
+          max="1"
+          min="0"
+          step="0.01"
+          onChange={this.props.handleVolumeChange}
+        />
+        <span className="icon ion-volume-high"></span>
+        <div>{this.props.currentVolume}</div>
       </section>
     </section>
     );
