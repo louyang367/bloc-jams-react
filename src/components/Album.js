@@ -15,7 +15,7 @@ class Album extends Component {
       currentSong: album.songs[0],
       currentTime: '0:00',
       duration: this.formatTime(album.songs[0].duration),
-      currentVolume: .5,
+      currentVolume: 50,
       isPlaying: false
     };
 
@@ -91,7 +91,7 @@ class Album extends Component {
 
   handleVolumeChange(e) {
     const newVol = e.target.value;
-    this.audioElement.volume = newVol;
+    this.audioElement.volume = newVol/100;
     this.setState({ currentVolume: newVol });
   }
 
@@ -118,9 +118,9 @@ class Album extends Component {
         </section>
         <table id="song-list">
           <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column" />
-            <col id="song-duration-column" />
+            <col id="song-number-column" width="100"/>
+            <col id="song-title-column" width="400"/>
+            <col id="song-duration-column" width="200"/>
           </colgroup>
           <tbody>
             { this.state.album.songs.map( (song, index) =>
@@ -130,7 +130,7 @@ class Album extends Component {
                   <span className='ion-play'></span>
                 </td>
                 <td className='songTitleCell'>{this.state.album.songs[index].title}</td>
-                <td className='songDurationCell'>{this.state.album.songs[index].duration}</td>
+                <td className='songDurationCell'>{this.formatTime(this.state.album.songs[index].duration)}</td>
               </tr>
             )}
           </tbody>

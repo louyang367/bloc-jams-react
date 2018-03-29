@@ -27,6 +27,127 @@
   to { transform: rotate(360deg); }
 }
 
+/******* ALL ********/
+* {
+    background-color: hsl(50, 47%, 85%);
+}
+
+/*App.js*/
+.App header h1{
+  font-family: 'Ribeye', 'impact';
+  background-color: hsl(50, 39%, 53%);
+  color: hsl(50, 47%, 85%);
+  font-size: 4em;
+  padding-top: 0.1em;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+header nav{
+  height: 50px;
+  border-bottom: 5px solid hsl(144, 27%, 33%);
+  margin-bottom: 0.2em;
+  margin-top: 1em;
+}
+
+header nav div{
+  font-family: 'Special Elite', 'sans serif';
+  font-size: 2em;
+  top: 1em;
+  color: darkgray;
+  text-align: center;
+  width: 50%;
+  float: left;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.link2landing a, .link2library a{
+    display: block;
+    border-top-left-radius: 55px;
+    border-top-right-radius: 55px;
+    border-left: 1px solid hsl(102, 70%, 70%);
+    border-right: 1px solid hsl(102, 70%, 70%);
+    border-top: 1px solid hsl(102, 70%, 70%);
+    line-height: 1.5;
+}
+
+a,a:visited,a:hover,a:active{
+	transition:0.5s color ease;
+	text-decoration:none;
+	color:#81b3d2;
+  background-color: white;
+}
+a:visited{
+	color:purple;
+}
+a:hover{
+	color:hsl(318, 86%, 63%);
+}
+.link2landing a:focus, .link2library a:focus {
+  background-color: hsl(102, 70%, 70%);
+}
+
+.point {
+  position: relative;
+  width: 80%;
+  left: 10%;
+  background-color: hsl(50, 37%, 91%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.point h2 {
+  font-family: 'Special Elit';
+  font-size: 2em;
+  text-align: left;
+  font-weight: lighter;
+  color: hsl(51, 39%, 32%);
+  text-shadow: 0 0 2px #000000;/*hsl(50, 47%, 85%);*/
+  margin-bottom: 0.1em;
+  margin-left: 1em;
+  background-color: hsl(50, 37%, 91%);
+}
+.point h2::first-letter {
+  font-size: 2em;
+}
+.point-description {
+  font-family: 'Special Elite';
+  font-size: 1.5em;
+  text-align: left;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  margin-left: 1em;
+  line-height: 1.5;
+  background-color: hsl(50, 37%, 91%);
+  /*border-bottom: 2px dotted black;*/
+}
+
+/*Library page*/
+.library {
+  font-family: 'Special Elite';
+}
+.library a div:nth-of-type(1) {
+  font-weight: bolder;
+}
+.library a div:nth-of-type(2) {
+  font-size: 1.5em;
+}
+
+/*Landing page*/
+.landing h1 {
+  font-family: 'Nanum Brush Script';
+  color: hsl(102, 19%, 27%);
+  font-size: 3em;
+  height: 100px;
+  animation-name: turn-up-music;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+}
+@keyframes turn-up-music {
+  from { font-size: 1em; }
+  to { font-size: 4em; }
+}
+
+/*Album page*/
 .songRow {
   display: block; }
 
@@ -38,3 +159,111 @@
 
 .songRow:hover .songNumCell .trackNumber{
   display: none; }
+
+.album {
+  position: absolute;
+  width: 100%;
+}
+
+
+#album-info {
+  border: purple solid 3px;
+}
+
+#album-cover-art {
+  position: float;
+  float: left;
+  left: 1%;
+  width: 100%;
+  /*height: auto;*/
+  opacity: 1;
+}
+
+.album-details {
+  position: absolute;
+  left: 0%;
+  top: 60%;
+  text-align: center;
+  color: white;
+  width: 100%;
+  /*border: purple solid 3px;*/
+  background-color: hsla(280,100%,20%,0.5);
+}
+
+.album-details #album-title, .album-details .artist, .album-details #release-info{
+  background-color: hsla(280,100%,20%,0.05);
+}
+
+.player-bar{
+  position: relative;
+  top: -100px;
+  left:10%;
+  width: 80%;
+  height: 42px;
+}
+
+.player-bar > * {
+  background: radial-gradient(darkgray, gray, lightgray);
+  border-radius: 10px;
+  border-style: outset;
+  display: inline-block;
+}
+
+#previous, #play-pause, #next {
+    height: 27px;
+}
+
+.player-bar span {
+  background-color: hsla(0, 1%, 1%, 0);
+}
+.current-bar-val{
+  color: white;
+  font-size: 0.9em;
+  font-family: 'Candara', 'Courier';
+  background-color: hsla(0, 1%, 1%, 0);
+}
+#buttons {
+  width: 25%;
+}
+#time-control {
+  width: 35%;
+  left: 28%;
+}
+#volume-control {
+  width: 35%;
+  left: 70%;
+}
+
+#song-list{
+  width: 75%;
+  border-collapse: collapse;
+  border-left: hsl(144, 27%, 33%) solid 6px;
+  position: relative;
+  top: 80px;
+  left:12.5%;
+}
+
+#song-list td {
+    border: 1px dotted #fff;
+    /*padding: 3px;*/
+    text-align: left;
+}
+#song-list .songNumCell{
+  width: 7%;
+}
+#song-list .songTitleCell{
+  width: 90%;
+}
+#song-list .songDurationCell{
+  width: 15%;
+  text-align: right;
+}
+#song-list tr:nth-child(even){background-color: #f2f2f2;}
+#song-list tr:hover {background-color: #ddd;}
+/*#song-list th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}*/
