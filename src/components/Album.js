@@ -130,7 +130,7 @@ class Album extends Component {
                   <span className='ion-play'></span>
                 </td>
                 <td className='songTitleCell'>{this.state.album.songs[index].title}</td>
-                <td className='songDurationCell'>{this.state.album.songs[index].duration}</td>
+                <td className='songDurationCell'>{this.formatTime(this.state.album.songs[index].duration)}</td>
               </tr>
             )}
           </tbody>
