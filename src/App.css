@@ -28,7 +28,7 @@
 }
 
 /******* ALL ********/
-@import url('https://fonts.googleapis.com/css?family=Ribeye|Nanum+Brush+Script|Special+Elite');
+@import url('https://fonts.googleapis.com/css?family=Ribeye|Nanum+Brush+Script|Special+Elite|Amatic+SC|VT323|Megrim|Expletus+Sans');
 
 * {
     background-color: hsl(50, 47%, 85%);
@@ -47,21 +47,30 @@ a:hover{
 }
 
 /**************App.js - Site name and navigation bar ************/
-.App header h1{
-  font-family: 'Ribeye', 'impact';
-  background-color: hsl(50, 39%, 53%);
-  color: hsl(50, 47%, 85%);
-  font-size: 4em;
-  padding-top: 0.1em;
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
+.App {
+  width: 1000px;
 }
 
-.App header nav{
+.App header {
   height: 3.1em;
-  border-bottom: 5px solid hsl(144, 27%, 33%);
+  border-bottom: 7px solid hsl(144, 27%, 33%);
   margin-top: 1em;
-  margin-bottom: 0.2em;
+  margin-bottom: 1em;
+  padding-bottom: 0.65em;
+  width: 100%;
+}
+
+.App header h1 {
+  float: left;
+  width: 30%;
+  padding-bottom: 0;
+  font-family: 'Megrim', 'Impact';
+  font-size: 3.8em;
+  color: darkblue; /*hsl(144, 27%, 33%);*/
+  text-shadow: 0 0 3px #FF0000;
+  font-weight: bolder;
+  margin-top: 0;
+  margin-left: 1em;
 }
 
 .App header nav div{
@@ -70,7 +79,7 @@ a:hover{
   top: 1em;
   color: darkgray;
   text-align: center;
-  width: 50%;
+  width: 30%;
   float: left;
   margin-bottom: 0;
   padding-top: 0;
@@ -83,7 +92,7 @@ a:hover{
   border-left: 1px solid hsl(102, 70%, 70%);
   border-right: 1px solid hsl(102, 70%, 70%);
   border-top: 1px solid hsl(102, 70%, 70%);
-  line-height: 1.5;
+  line-height: 1.75;
   background-color: white;
 }
 .App header .link2landing a:focus, .App header .link2library a:focus {
@@ -92,99 +101,103 @@ a:hover{
 
 /*****************Landing page***************/
 
-.landing h1 {
-  font-family: 'Nanum Brush Script', 'Cursive';
-  color: hsl(102, 19%, 27%);
-  font-size: 3em;
-  height: 3em; /*to prevent the sections below to shift*/
-  animation-name: turn-up-music;
-  animation-duration: 4s;
-  animation-iteration-count: 1;
+.landing {
+  background: radial-gradient(circle, hsl(0, 100%, 50%, .3), hsla(50, 100%, 50%, .3), hsl(204, 99%, 54%, .3));
+  height: 900px;
 }
-@keyframes turn-up-music {
-  from { font-size: 1em; }
-  to { font-size: 4em; }
+
+.landing .hero-title{
+    float: left;
+    font-family: 'Amatic SC', 'Sans serif';
+    font-size: 8em;
+    font-weight: bolder;
+    margin-left: 7.5%;
+    line-height: 1.5;
+    width: 80%;
+    background: none;
 }
 
 .landing .point {
-  position: relative;
-  width: 80%;
-  left: 10%;
-  background-color: hsl(50, 37%, 91%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 3.5em;
+  float:left;
+  width: 30%;
+  background: none;
+  margin-right: 2%;
+  margin-bottom: 1em;
+  margin-top: 20%;
 }
 
 .landing .selling-points .point h2 {
-  font-family: 'Special Elit', 'Courier';
-  font-size: 2em;
+  font-family: 'Expletus Sans', 'Ariel';
+  font-size: 1.5em;
   text-align: left;
-  font-weight: lighter;
-  color: red; /*hsl(51, 39%, 32%);*/
-  text-shadow: 0 0 2px #000000;
+  font-weight: bold;
+  color: purple; /*hsl(51, 39%, 32%);*/
   margin-bottom: 0.1em;
   margin-left: 1em;
-  background-color: hsl(50, 37%, 91%);
+  background: none;
 }
 
-.selling-points .point:nth-of-type(1){ width: 50%; left: 15%; }
-.selling-points .point:nth-of-type(2){ width: 75%; left: 15%; }
-.selling-points .point:nth-of-type(3){ width: 60%; left: 15%; }
-
 .landing .point-description {
-  font-family: 'Special Elite', 'Courier';
+  font-family: 'VT323', 'Ariel';
   font-size: 1.5em;
   text-align: left;
   margin-top: 0.1em;
   margin-bottom: 0.1em;
   margin-left: 1em;
-  line-height: 1.5;
-  background-color: hsl(50, 37%, 91%);
+  background: none;
 }
 
 /****************Library page*************/
 
 .library {
   font-family: 'Special Elite', 'Courier';
+  position: relative;
+  width: 100%;
+  height: 900px;
+}
+
+.library a {
+  margin-left: 2%;
+  float: left;
+  width: 47%;
+}
+.library a img {
+  width: 100%;
 }
 .library a div:nth-of-type(1) {
   font-size: 1.5em;
+  line-height: 1.2em;
 }
 .library a div:nth-of-type(2) {
     font-weight: bolder;
+    line-height: 1.4em;
 }
 
 /********* Album page *************/
 
 .album {
-  overflow: scroll;
+  overflow: auto;
   padding: 0 6em 3em 6em;
 }
 
-#album-info {
-  position: relative;
-  width: 100%;
-  margin-bottom: -0.5em;
-}
-
 #album-cover-art {
-  position: relative;
-  left: 0%;
+  float: left;
+  margin-left: 5%;
   top: 1%;
-  width: 100%;
+  width: 40%;
   opacity: 1;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 7px 16px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* album title banner */
 
 .album-details {
-  position: relative;
-  left: 0%;
-  top: -15em;
+  float:right;
+  margin-top: 5%;
+  margin-right: 5%;
   text-align: center;
-  color: white;
-  width: 100%;
-  background-color: hsla(280,100%,20%,0.5);
+  color: hsl(280,100%,20%);
+  width: 45%;
 }
 
 .album-details #album-title, .album-details .artist, .album-details #release-info{
@@ -210,9 +223,9 @@ a:hover{
 /* player buttons */
 
 .player-bar{
-  position: relative;
-  top: -14em;
-  left:10%;
+  position: fixed;
+  top: 90%;
+  left: 10%;
   width: 80%;
   height: 3em;
   background: none;
@@ -252,16 +265,18 @@ a:hover{
 
 /* song list table */
 #song-list{
-  width: 65%;
+  width: 75%;
   border-collapse: collapse;
   border-left: hsl(144, 27%, 33%) solid 6px;
-  position: relative;
-  left:15%;
-  top: -2em;
+  float: left;
+  margin-left: 10%;
+  margin-top: 10%;
+  font-size: 1.2em;
+  line-height: 1.6;
 }
 #song-list td {
-    border-bottom: 1px dotted #fff;
-    border-top: 1px dotted #fff;
+    border-bottom: 2px dotted #fff;
+    border-top: 2px dotted #fff;
     text-align: left;
 }
 #song-list .ion-play {
@@ -283,7 +298,7 @@ a:hover{
   background-color: lightgray;
 }*/
 #song-list tr:hover {
-  border: 1px solid hsl(144, 27%, 33%);
+  border: 2px solid hsl(144, 27%, 33%);
 }
 #song-list tr:hover td{
     background-color: #ffffff;
