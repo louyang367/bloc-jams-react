@@ -101,8 +101,25 @@ class Album extends Component {
       const intSec = Math.round(seconds);
       const min = Math.round(intSec/60);
       const sec = intSec%60;
-      return `${min}:${sec}`;
+      if (sec>=10)
+        return `${min}:${sec}`;
+      else
+        return `${min}:0${sec}`;
     }
+  }
+
+  whichIcon(song, index){
+    if (this.state.currentSong !== song)
+      return (
+        <td className='songNumCell'>
+          <span className='trackNumber'>{index+1}</span><span className='ion-play'></span>
+        </td>
+      )
+    else if (this.state.isPlaying)
+      return (
+        <td className='songNumCell'><span className='ion-pause'></span></td>)
+    else
+      return (<td className='songNumCell'><span className='ion-play' id='just-play'></span></td>)
   }
 
   render() {
@@ -123,12 +140,10 @@ class Album extends Component {
             <col id="song-duration-column" width="200"/>
           </colgroup>
           <tbody>
+
             { this.state.album.songs.map( (song, index) =>
-              <tr className='songRow' key={index} onClick={() => this.handleSongClick(song)} >
-                <td className='songNumCell'>
-                  <span className='trackNumber'>{index+1}</span>
-                  <span className='ion-play'></span>
-                </td>
+              <tr className='songRow' key={index} onClick={() => this.handleSongClick(song)}  >
+                {  this.whichIcon(song, index) }
                 <td className='songTitleCell'>{this.state.album.songs[index].title}</td>
                 <td className='songDurationCell'>{this.formatTime(this.state.album.songs[index].duration)}</td>
               </tr>
