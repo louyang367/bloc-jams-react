@@ -14,9 +14,10 @@ import React, { Component } from 'react';
         <button id="next" onClick={this.props.handleNextClick}>
           <span className="ion-skip-forward"></span>
         </button>
+        <div className="current-bar-val">&quot;{this.props.currentSong.title}&quot;</div>
       </section>
       <section id="time-control">
-        <div className="current-time">{this.props.currentTime}</div>
+        <span className="current-time">0</span>
         <input
           type="range"
           className="seek-bar"
@@ -26,21 +27,22 @@ import React, { Component } from 'react';
           step="0.01"
           onChange={this.props.handleTimeChange}
         />
-        <div className="total-time">{this.props.duration}</div>
+        <span className="total-time">{this.props.duration}</span>
+        <div className="current-bar-val">{this.props.currentTime}</div>
       </section>
       <section id="volume-control">
-        <span className="icon ion-volume-low"></span>
+        <span className="icon ion-volume-low">0</span>
         <input
           type="range"
           className="volume-bar"
-          value={(this.props.currentVolume) || 0.5}
-          max="1"
+          value={(this.props.currentVolume) || 50}
+          max="100"
           min="0"
-          step="0.01"
+          step="1"
           onChange={this.props.handleVolumeChange}
         />
-        <span className="icon ion-volume-high"></span>
-        <div>{this.props.currentVolume}</div>
+        <span className="icon ion-volume-high">100</span>
+        <div className="current-bar-val">{this.props.currentVolume}</div>
       </section>
     </section>
     );

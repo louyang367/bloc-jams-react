@@ -15,7 +15,7 @@ class Album extends Component {
       currentSong: album.songs[0],
       currentTime: '0:00',
       duration: this.formatTime(album.songs[0].duration),
-      currentVolume: .5,
+      currentVolume: 50,
       isPlaying: false
     };
 
@@ -91,7 +91,7 @@ class Album extends Component {
 
   handleVolumeChange(e) {
     const newVol = e.target.value;
-    this.audioElement.volume = newVol;
+    this.audioElement.volume = newVol/100;
     this.setState({ currentVolume: newVol });
   }
 
@@ -101,8 +101,25 @@ class Album extends Component {
       const intSec = Math.round(seconds);
       const min = Math.round(intSec/60);
       const sec = intSec%60;
-      return `${min}:${sec}`;
+      if (sec>=10)
+        return `${min}:${sec}`;
+      else
+        return `${min}:0${sec}`;
     }
+  }
+
+  whichIcon(song, index){
+    if (this.state.currentSong !== song)
+      return (
+        <td className='songNumCell'>
+          <span className='trackNumber'>{index+1}</span><span className='ion-play'></span>
+        </td>
+      )
+    else if (this.state.isPlaying)
+      return (
+        <td className='songNumCell'><span className='ion-pause'></span></td>)
+    else
+      return (<td className='songNumCell'><span className='ion-play' id='just-play'></span></td>)
   }
 
   render() {
@@ -118,17 +135,15 @@ class Album extends Component {
         </section>
         <table id="song-list">
           <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column" />
-            <col id="song-duration-column" />
+            <col id="song-number-column" width="100"/>
+            <col id="song-title-column" width="400"/>
+            <col id="song-duration-column" width="200"/>
           </colgroup>
           <tbody>
+
             { this.state.album.songs.map( (song, index) =>
-              <tr className='songRow' key={index} onClick={() => this.handleSongClick(song)} >
-                <td className='songNumCell'>
-                  <span className='trackNumber'>{index+1}</span>
-                  <span className='ion-play'></span>
-                </td>
+              <tr className='songRow' key={index} onClick={() => this.handleSongClick(song)}  >
+                {  this.whichIcon(song, index) }
                 <td className='songTitleCell'>{this.state.album.songs[index].title}</td>
                 <td className='songDurationCell'>{this.formatTime(this.state.album.songs[index].duration)}</td>
               </tr>
